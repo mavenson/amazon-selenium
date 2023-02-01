@@ -1,0 +1,1 @@
+from jasamazontests.src.pages.locators.HomePageLocators import HomePageLocators
