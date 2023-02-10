@@ -1,5 +1,4 @@
 import os
-
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -27,4 +26,3 @@ def init_driver(request):
         driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
     request.cls.driver = driver
     yield driver
-#    driver.quit()

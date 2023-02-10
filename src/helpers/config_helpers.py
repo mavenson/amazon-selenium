@@ -5,3 +5,6 @@ def get_base_url():
     env = os.environ.get('ENV', 'test')
     if env.lower() == 'test':
         return 'https://www.amazon.com/'
+
+def get_current_url(driver):
+    return driver.current_url

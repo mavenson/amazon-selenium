@@ -1,6 +1,7 @@
 from jasamazontests.src.pages.locators.CartPageLocators import CartPageLocators
 from jasamazontests.src.helpers.config_helpers import get_base_url
 from jasamazontests.src.SeleniumExtended import SeleniumExtended
+from selenium.webdriver.common.by import By
 
 
 class CartPage(CartPageLocators):
@@ -17,5 +18,10 @@ class CartPage(CartPageLocators):
         self.driver.get(cart_url)
 
     def get_empty_cart_message(self):
-        self.sl.wait_until_element_contains_text(self.EMPTY_CART_MESSAGE, "Your Amazon Cart is empty")
+        empty_cart_message = self.driver.find_element(By.XPATH, '//*[@id="sc-active-cart"]/div/div/div[2]/div[1]/h2').text
+        return empty_cart_message
+
+    def get_shopping_cart_header(self):
+        cart_header = self.driver.find_element(By.XPATH, '//*[@id="sc-active-cart"]/div/div/div/h1').text
+        return cart_header
 
